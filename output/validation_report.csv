@@ -1,0 +1,15 @@
+,value
+source_sheet_count,8
+customers_rows,30
+orders_rows,22
+order_items_rows,23
+shipments_rows,20
+shipment_items_rows,21
+delivery_analytics_rows,22
+orders_missing_customer,0
+order_items_missing_order,0
+shipments_missing_order,0
+analytics_missing_shipment_date,2
+analytics_missing_expected_date,0
+analytics_missing_actual_date,2
+analytics_duplicate_order_ids,0

@@ -1,0 +1,28 @@
+Total Orders = DISTINCTCOUNT(Delivery_Analytics[order_id])
+
+Average Order Processing Days =
+AVERAGE(Delivery_Analytics[order_processing_days])
+
+Average Delivery Delay Days =
+AVERAGE(Delivery_Analytics[delivery_delay_days])
+
+On-Time Delivery Rate =
+DIVIDE(
+    CALCULATE(
+        DISTINCTCOUNT(Delivery_Analytics[order_id]),
+        Delivery_Analytics[on_time_flag] = 1
+    ),
+    DISTINCTCOUNT(Delivery_Analytics[order_id])
+)
+
+Late Delivery Rate =
+1 - [On-Time Delivery Rate]
+
+Average Delivery Time Days =
+AVERAGE(Delivery_Analytics[delivery_time_days])
+
+Late Orders =
+CALCULATE(
+    DISTINCTCOUNT(Delivery_Analytics[order_id]),
+    Delivery_Analytics[delivery_delay_days] > 0
+)

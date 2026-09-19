@@ -1,0 +1,22 @@
+SAP Source,DW Table,Source Field,DW Field,Notes
+KNA1,Customers,Customer ID,customer_id,Primary key
+VBAK,Orders,Sales Document,order_id,Primary key
+VBAK,Orders,Customer ID,customer_id,FK to Customers
+VBAK,Orders,Order Date,order_date,Order creation date
+VBAP,Order_Items,Sales Document,order_id,FK to Orders
+VBAP,Order_Items,Item Number,item_number,Composite key
+VBAP,Order_Items,Material Number,product_id,Product/material
+VBAP,Order_Items,Quantity,order_quantity,Ordered quantity
+VBAP,Order_Items,Net Price,unit_price,Unit price
+VBAP,Order_Items,Delivery Date,expected_delivery_date,Assumption: expected date
+LIKP,Shipments,Delivery Number,delivery_id,Delivery identifier
+LIKP,Shipments,Sales Document,order_id,FK to Orders
+VTTK,Shipments,Shipment Number,shipment_id,Primary key
+VTTK,Shipments,Carrier,carrier_id,Mapped to carrier dimension
+VTTP,Shipment_Items,Shipment Number,shipment_id,FK to Shipments
+VTTP,Shipment_Items,Material Number,product_id,Product/material
+VTTP,Shipment_Items,Shipped Quantity,shipped_quantity,Shipped quantity
+LIPS,Delivery_Analytics,Delivery Date,actual_delivery_date,Assumption: actual date
+VTTK,Delivery_Analytics,Shipment Date,shipment_date,Dispatch date
+Derived,Delivery_Analytics,actual - expected,delivery_delay_days,Delay KPI
+Derived,Delivery_Analytics,shipment - order,order_processing_days,Processing KPI
